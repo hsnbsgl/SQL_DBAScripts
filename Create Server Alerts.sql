@@ -8,27 +8,27 @@ GO
 /* Login failed Alert could be used in production servers only */
 DECLARE @lcAlertName SYSNAME=N'Login failed Alert', @lcOperatorName SYSNAME = 'DB Admins'
 EXEC msdb.dbo.sp_add_alert @name=@lcAlertName, @message_id=18456, @enabled=1, @delay_between_responses=60, @include_event_description_in=1
-EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email ile notify et
+EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email 
 GO
 
 DECLARE @lcAlertName SYSNAME=N'017 - Insufficient Resources', @lcOperatorName SYSNAME = 'DB Admins'
 EXEC msdb.dbo.sp_add_alert @name=@lcAlertName, @severity=17, @enabled=1, @include_event_description_in=1, @delay_between_responses=60
-EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email ile notify et
+EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email
 GO
 
 DECLARE @lcAlertName SYSNAME=N'018 - Nonfatal Internal Error', @lcOperatorName SYSNAME = 'DB Admins'
 EXEC msdb.dbo.sp_add_alert @name=@lcAlertName, @severity=18, @enabled=1, @include_event_description_in=1, @delay_between_responses=60
-EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email ile notify et
+EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email 
 GO
 
 DECLARE @lcAlertName SYSNAME=N'019 - Fatal Error in Resource', @lcOperatorName SYSNAME = 'DB Admins'
 EXEC msdb.dbo.sp_add_alert @name=@lcAlertName, @severity=19, @enabled=1, @include_event_description_in=1, @delay_between_responses=60
-EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email ile notify et
+EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email
 GO
 
 DECLARE @lcAlertName SYSNAME=N'020 - Fatal Error in Current Process', @lcOperatorName SYSNAME = 'DB Admins'
 EXEC msdb.dbo.sp_add_alert @name=@lcAlertName, @severity=20, @enabled=1, @include_event_description_in=1, @delay_between_responses=60
-EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email ile notify et
+EXEC msdb.dbo.sp_add_notification @alert_name=@lcAlertName, @operator_name=@lcOperatorName, @notification_method=1 --Email
 GO
 
 DECLARE @lcAlertName SYSNAME=N'021 - Fatal Error in Database Processes', @lcOperatorName SYSNAME = 'DB Admins'
