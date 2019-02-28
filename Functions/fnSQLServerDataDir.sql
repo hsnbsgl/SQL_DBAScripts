@@ -10,15 +10,15 @@ BEGIN
 
 	DECLARE @rc INT,@dir NVARCHAR(4000);
 
-	EXEC @rc = master.dbo.xp_instance_regread N'HKEY_LOCAL_MACHINE',N'Software\Microsoft\MSSQLServer\MSSQLServer',N'DefaultData', @dir OUTPUT, 'no_output' 
+	EXEC @rc = master.dbo.xp_instance_regread N'HKEY_LOCAL_MACHINE',N'Software\Microsoft\MSSQLServer\MSSQLServer',N'DefaultData', @dir OUTPUT, 'no_output' ;
 
-	IF (@dir is null)
+	IF (@dir IS NULL)
 	BEGIN
-		EXEC @rc = master.dbo.xp_instance_regread N'HKEY_LOCAL_MACHINE',N'Software\Microsoft\MSSQLServer\Setup',N'SQLDataRoot', @dir OUTPUT, 'no_output'
-		SELECT @dir = @dir + N'\Data'
+		EXEC @rc = master.dbo.xp_instance_regread N'HKEY_LOCAL_MACHINE',N'Software\Microsoft\MSSQLServer\Setup',N'SQLDataRoot', @dir OUTPUT, 'no_output';
+		SELECT @dir = @dir + N'\Data';
 	END 
 
-	RETURN @dir 
+	RETURN @dir ;
 
 END
 
