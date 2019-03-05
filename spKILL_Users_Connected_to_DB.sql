@@ -5,7 +5,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[spKILL_Users_Connected_to_DB] 
-@argDB_Name VARCHAR(50)
+@argDB_Name VARCHAR(128)
 AS
 BEGIN
 	--Kill Users (Restore Needs Exclusive Access to the Database)
