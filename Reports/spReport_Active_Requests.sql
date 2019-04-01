@@ -14,11 +14,11 @@ CREATE OR ALTER PROCEDURE [dbo].[spReport_Active_Requests]
 AS
 BEGIN
 	SET NOCOUNT ON;
-	SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+	--SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 
-	DECLARE @lcsession_id SMALLINT, @lcrequest_id INT, @lcSQL VARCHAR(200)
-	CREATE TABLE #Requests (session_id SMALLINT, request_id INT, [text] TEXT)
-	CREATE TABLE #InputBuffer_Temp(EventType VARCHAR(30), [Parameters] INT, EventInfo VARCHAR(4000))
+	DECLARE @lcsession_id SMALLINT, @lcrequest_id INT, @lcSQL VARCHAR(200);
+	CREATE TABLE #Requests (session_id SMALLINT, request_id INT, [text] TEXT);
+	CREATE TABLE #InputBuffer_Temp(EventType VARCHAR(30), [Parameters] INT, EventInfo VARCHAR(4000));
 
 	IF @argShow_DBCC_Input_Buffer = 1 BEGIN
 		DECLARE Requests_Cursor CURSOR LOCAL FAST_FORWARD READ_ONLY FOR
