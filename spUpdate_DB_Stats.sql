@@ -80,9 +80,9 @@ AS BEGIN
 	BEGIN
 		BEGIN TRY
 			--PRINT @lcDB_Name+'.'+@lcSchemaName+'.'+@lcTableName 
-			SELECT @lcStart_Time = GETDATE()
+			SELECT @lcStart_Time = GETDATE();
 			
-			SELECT  @lcSQL = 'USE [' + @lcDB_Name + ']; UPDATE STATISTICS [' + @lcSchemaName+ '].[' + @lcTableName + '] WITH ALL'
+			SELECT  @lcSQL = 'USE [' + @lcDB_Name + ']; UPDATE STATISTICS [' + @lcSchemaName+ '].[' + @lcTableName + '] WITH ALL ;'
 				
 			EXEC( @lcSQL)
 									
@@ -90,9 +90,9 @@ AS BEGIN
 		END TRY
 
 		BEGIN CATCH --Hata oluştu
-			DECLARE @lcSubject VARCHAR(50)
+			DECLARE @lcSubject VARCHAR(50);
 			
-			SET @lcSubject = @@SERVERNAME + ' - ' + @lcDB_Name +  ' - Update Statistics Error.'
+			SET @lcSubject = @@SERVERNAME + ' - ' + @lcDB_Name +  ' - Update Statistics Error.';
 			
 			/*Send Mail here*/
 		
